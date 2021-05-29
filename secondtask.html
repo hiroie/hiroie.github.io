@@ -45,6 +45,12 @@
     directionalLight1.position.set(1, 1, 1);
     // シーンに追加
     scene.add(directionalLight1);
+    
+    // 平行光源2
+        var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+    directionalLight2.position.set(-1, 1, 1);
+    // シーンに追加
+    scene.add(directionalLight2);
   
     // 初回実行
     var update = function() {
@@ -53,7 +59,6 @@
       // 円錐を回転させる
       cone1.rotation.x += 0.02;
       cone1.rotation.y += 0.02;
-  
       renderer.render(scene, camera);
     };
     update();
