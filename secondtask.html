@@ -35,7 +35,7 @@
     
       // 球を作成
     var spheregeometry = new THREE.SphereGeometry(0.5, 32, 32);
-    var spherematerial = new THREE.MeshPhongMaterial({ color: 0x6699ff });
+    var spherematerial = new THREE.MeshPhongMaterial({ color: 0x6699ff,wireframe:true });
     var sphere1 = new THREE.Mesh(spheregeometry, spherematerial);
     sphere1.position.set(0,0,-5);
     scene.add(sphere1);
