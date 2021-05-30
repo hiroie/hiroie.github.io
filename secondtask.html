@@ -27,7 +27,7 @@
     var camera = new THREE.PerspectiveCamera(45, 800 / 600, 1, 1000);
   
     // 円錐を作成
-    var conegeometry = new THREE.ConeGeometry(0.5, 1, 1.5);
+    var conegeometry = new THREE.ConeGeometry(0.5,1,5);
     var conematerial = new THREE.MeshPhongMaterial({ color: 0x0000ff, wireframe:true });
     var cone1 = new THREE.Mesh(conegeometry, conematerial);
     cone1.position.set(0,0,5);
