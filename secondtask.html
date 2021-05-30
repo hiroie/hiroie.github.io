@@ -27,17 +27,17 @@
     var camera = new THREE.PerspectiveCamera(45, 800 / 600, 1, 1000);
   
     // 円錐を作成
-    var conegeometry = new THREE.ConeGeometry(0.5, 1, 1.5);
-    var conematerial = new THREE.MeshPhongMaterial({ color: 0x0000ff, wireframe:true });
-    var cone1 = new THREE.Mesh(conegeometry, conematerial);
-    cone1.position.set(2,0,-5);
+    var coneGeometry = new THREE.ConeGeometry(0.5,1,5);
+    var coneMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+    var cone1 = new THREE.Mesh(coneGeometry, coneMaterial);
+    cone1.position.set(0,0,5);
     scene.add(cone1);
     
       // 球を作成
     var spheregeometry = new THREE.SphereGeometry(0.5, 32, 32);
     var spherematerial = new THREE.MeshPhongMaterial({ color: 0x6699ff });
     var sphere1 = new THREE.Mesh(spheregeometry, spherematerial);
-    sphere1.position.set(-2,-5,-5);
+    sphere1.position.set(0,0,-5);
     scene.add(sphere1);
       
     // 平行光源1
@@ -54,8 +54,6 @@
   
     //描画
     renderer.render(scene, camera);
-    };
-    update();
   }
   window.addEventListener('DOMContentLoaded', init);
 </script>
