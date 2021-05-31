@@ -30,12 +30,12 @@
 
 // テクスチャー読み込み
 var textureLoader = new THREE.TextureLoader();  
-var texture = textureLoader.load("stone-tile01-768x480.jpg");
+var texture = textureLoader.load("metal1.jpg");
 var mat = new THREE.MeshPhongMaterial();
 mat.map = texture;
 
 // 箱を作成
-var geometry = new THREE.BoxGeometry(1, 1, 1);
+var geometry = new THREE.BoxGeometry(2, 2, 2);
 //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
 //var box = new THREE.Mesh(geometry, material);
 var box = new THREE.Mesh(geometry, mat);
