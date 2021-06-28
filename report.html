@@ -39,83 +39,68 @@
     // カメラコントローラーを作成
     const controls = new THREE.OrbitControls(camera,document.body);
 
-    //球
-    var textureLoader = new THREE.TextureLoader(); 
+    // テクスチャー1読み込み
+    var textureLoader = new THREE.TextureLoader();  
     var texture = textureLoader.load("uma.png");
-    const material = new THREE.SpriteMaterial({ map: texture,});
-    const sprite1 = new THREE.Sprite(material);
-    sprite1.position.x = -5;
-    sprite1.position.y = 0;
-    sprite1.position.z = 0;
-    sprite1.scale.set(100,100,100);
-    scene.add(sprite1)
+    var mat0 = new THREE.MeshPhongMaterial();
+    mat0.map = texture;
 	  
-　　//正方形
-    var boxgeometry = new THREE.BoxGeometry(1,1,1);
-    var boxmaterial = new THREE. MeshPhongMaterial({ color: 0x0000ff});
-    var box = new THREE.Mesh(boxgeometry,boxmaterial);
-    box.castShadow = true;
-    box.position.set( 5,0,0);
-    scene.add(box);
-    
-    //長方形  
-    var planegeometry = new THREE.PlaneGeometry( 1, 1.5, 3 );
-    var planematerial = new THREE.MeshPhongMaterial( {color: 0x00ff00, side: THREE.DoubleSide} );
-    var plane = new THREE.Mesh( planegeometry, planematerial );
-    plane.castShadow = true;
-    plane.position.set(0, 0, 5);
-    scene.add( plane );
-
-　　//角錐
-    var coneGeometry = new THREE.ConeGeometry( 0.5, 1, 5 ); 
-	//半径、高さ、底面の分割数
-    var coneMaterial = new THREE. MeshPhongMaterial( {color: 0x0000ff} );
-    var cone = new THREE.Mesh( coneGeometry, coneMaterial );
-    cone.castShadow = true;
-    cone.position.set( 0, 0, -5 );
-    scene.add( cone );
-
-　　//角柱もどき
-    var cylinderGeometry = new THREE.CylinderGeometry( 0.3, 0.5, 1, 8 );
-	//上の底面の半径、下の底面の半径、高さ、何角柱か
-    var cylinderMaterial = new THREE.MeshPhongMaterial( {color: 0xffff00} );
-    var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
-    cylinder.castShadow = true;
-    cylinder.position.set( 0.7, 0, -3.5 );
-    scene.add( cylinder );
-
-　　//トーラス
-    var torusGeometry = new THREE.TorusGeometry( 0.5, 0.2, 6, 12 ); 
-	//半径、ドーナッツの太さ、ドーナッツのチューブ方向の分割数、水平方向の分割数
-    var torusMaterial = new THREE. MeshPhongMaterial( { color: 0xffff00 } );
-    var torus = new THREE.Mesh( torusGeometry, torusMaterial );
-    torus.castShadow = true;  
-    torus.position.set( 3.5, 0, 3.5);
-    scene.add( torus );
-
-	//なんかクネクネしてるやつ
-    var torusKnotGeometry = new THREE.TorusKnotGeometry( 0.5, 0.1, 20, 6, 3, 2 ); 
-	//全体的な大きさ、チューブの太さ、クネクネの進む方向に対して何分割するか、
-	//チューブ方向に対して何分割するか、残りの二つの数字を変えるとクネクネの形が変わる
-    var torusKnotMaterial = new THREE. MeshPhongMaterial( { color: 0xff0000, wireframe:true } );
-    var torusKnot = new THREE.Mesh( torusKnotGeometry, torusKnotMaterial );
-    torusKnot.castShadow = true;
-    torusKnot.position.set( -3.5, 0, 3.5 );
-    scene.add( torusKnot );
-
-　　//正十二面体
-    var dodecaGeometry = new THREE.DodecahedronGeometry(0.6);
-    var dodecaMaterial = new THREE. MeshPhongMaterial( { color: 0xff0000 } );
-    var dodeca = new THREE.Mesh( dodecaGeometry, dodecaMaterial );
-    dodeca.castShadow = true;
-    dodeca.position.set( -3.5, 0, -3.5 );
-    scene.add( dodeca );
+    // テクスチャー2読み込み
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("basya.png");
+    var mat1 = new THREE.MeshPhongMaterial();
+    mat1.map = texture;	  
+	  
+    // 木1を作成(原点に作成)
+    var uma1 = new THREE.Mesh(geometry, mat0);
+    uma1.position.set(-5, 0, 0);
+    scene.add(uma1);
+	  
+    // 木1を作成(原点に作成)
+    var basya1 = new THREE.Mesh(geometry, mat1);
+    basya1.position.set(5, 0, 0);
+    scene.add(basya1);
+	  
+    // 木1を作成(原点に作成)
+    var uma2 = new THREE.Mesh(geometry, mat0);
+    uma2.position.set(0, 0, 5);
+    scene.add(uma2);
+	  
+    // 木1を作成(原点に作成)
+    var basya2 = new THREE.Mesh(geometry, mat1);
+    basya2.position.set(0, 0, -5);
+    scene.add(basya2);
+	  
+    // 木1を作成(原点に作成)
+    var uma3 = new THREE.Mesh(geometry, mat0);
+    uma3.position.set(0.7, 0, -3.5);
+    scene.add(uma3);
+	  
+    // 木1を作成(原点に作成)
+    var basya3 = new THREE.Mesh(geometry, mat1);
+    basya3.position.set(3.5, 0, 3.5);
+    scene.add(basya3);
+	  
+    // 木1を作成(原点に作成)
+    var uma4 = new THREE.Mesh(geometry, mat0);
+    uma4.position.set(-3.5, 0, 3.5);
+    scene.add(uma4);
+	  
+    // 木1を作成(原点に作成)
+    var basya4 = new THREE.Mesh(geometry, mat1);
+    basya4.position.set(-3.5, 0, -3.5);
+    scene.add(basya4);
+	  
+    // テクスチャー3読み込み
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("renga.png");
+    var mat2 = new THREE.MeshPhongMaterial();
+    mat2.map = texture;
 	  
     //長方形  
     var groundgeometry = new THREE.PlaneGeometry( 15, 15 );
     var groundmaterial = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.FrontSide} );
-    var ground = new THREE.Mesh( groundgeometry, groundmaterial );
-    ground.receiveShadow = true;
+    var ground = new THREE.Mesh( groundgeometry, mat2);
     ground.rotation.set(-Math.PI/2,0,0);
     ground.position.set(0, -2, 0);
     scene.add( ground );
@@ -141,24 +126,24 @@
         const rad = degree * Math.PI / 180;
 	
 	//楕円上移動
-        sprite1.position.x = 5 * Math.cos(rad+Math.PI);
-	sprite1.position.z = Math.sin(rad+Math.PI);
-        box.position.x = 5 * Math.cos(rad);
-	box.position.z = Math.sin(rad);
-        cone.position.x = Math.cos(rad+Math.PI);
-	cone.position.z = 5 * Math.sin(rad+Math.PI);
-        plane.position.x = Math.cos(rad);
-	plane.position.z = 5 * Math.sin(rad);
+        uma1.position.x = 5 * Math.cos(rad+Math.PI);
+	uma1.position.z = Math.sin(rad+Math.PI);
+        basya1.position.x = 5 * Math.cos(rad);
+	basya1.position.z = Math.sin(rad);
+        uma2.position.x = Math.cos(rad+Math.PI);
+	uma2.position.z = 5 * Math.sin(rad+Math.PI);
+        basya2.position.x = Math.cos(rad);
+	basya2.position.z = 5 * Math.sin(rad);
 
 	//斜め楕円上移動
-	cylinder.position.x = 5 * Math.cos(rad + Math.PI/4) * Math.cos(Math.PI/4*7) - Math.sin(rad + Math.PI/4) * Math.sin(Math.PI/4*7);
-	cylinder.position.z = Math.sin(rad + Math.PI/4) * Math.cos(Math.PI/4*7) + 5 * Math.cos(rad + Math.PI/4) * Math.sin(Math.PI/4*7);
-        torusKnot.position.x = 5 * Math.cos(rad + Math.PI/4) * Math.cos(Math.PI/4*3) - Math.sin(rad + Math.PI/4) * Math.sin(Math.PI/4*3);
-	torusKnot.position.z = Math.sin(rad + Math.PI/4) * Math.cos(Math.PI/4*3) + 5 * Math.cos(rad + Math.PI/4) * Math.sin(Math.PI/4*3);
-        torus.position.x = 5 * Math.cos(rad + Math.PI/4*3) * Math.cos(Math.PI/4) - Math.sin(rad + Math.PI/4*3) * Math.sin(Math.PI/4);
-	torus.position.z = Math.sin(rad + Math.PI/4*3) * Math.cos(Math.PI/4) + 5 * Math.cos(rad + Math.PI/4*3) * Math.sin(Math.PI/4);
-        dodeca.position.x = 5 * Math.cos(rad + Math.PI/4*3) * Math.cos(Math.PI/4*5) - Math.sin(rad + Math.PI/4*3) * Math.sin(Math.PI/4*5);
-	dodeca.position.z = Math.sin(rad + Math.PI/4*3) * Math.cos(Math.PI/4*5) + 5 * Math.cos(rad + Math.PI/4*3) * Math.sin(Math.PI/4*5);
+	uma3.position.x = 5 * Math.cos(rad + Math.PI/4) * Math.cos(Math.PI/4*7) - Math.sin(rad + Math.PI/4) * Math.sin(Math.PI/4*7);
+	uma3.position.z = Math.sin(rad + Math.PI/4) * Math.cos(Math.PI/4*7) + 5 * Math.cos(rad + Math.PI/4) * Math.sin(Math.PI/4*7);
+        basya3.position.x = 5 * Math.cos(rad + Math.PI/4) * Math.cos(Math.PI/4*3) - Math.sin(rad + Math.PI/4) * Math.sin(Math.PI/4*3);
+	basya3.position.z = Math.sin(rad + Math.PI/4) * Math.cos(Math.PI/4*3) + 5 * Math.cos(rad + Math.PI/4) * Math.sin(Math.PI/4*3);
+        uma4.position.x = 5 * Math.cos(rad + Math.PI/4*3) * Math.cos(Math.PI/4) - Math.sin(rad + Math.PI/4*3) * Math.sin(Math.PI/4);
+	uma4.position.z = Math.sin(rad + Math.PI/4*3) * Math.cos(Math.PI/4) + 5 * Math.cos(rad + Math.PI/4*3) * Math.sin(Math.PI/4);
+        basya4.position.x = 5 * Math.cos(rad + Math.PI/4*3) * Math.cos(Math.PI/4*5) - Math.sin(rad + Math.PI/4*3) * Math.sin(Math.PI/4*5);
+	basya4.position.z = Math.sin(rad + Math.PI/4*3) * Math.cos(Math.PI/4*5) + 5 * Math.cos(rad + Math.PI/4*3) * Math.sin(Math.PI/4*5);
 
 	renderer.render(scene, camera);
     };
