@@ -51,42 +51,42 @@
     var mat1 = new THREE.MeshPhongMaterial();
     mat1.map = texture;	  
 	  
-    // 木1を作成(原点に作成)
+    // 馬1
     var uma1 = new THREE.Mesh(geometry, mat0);
     uma1.position.set(-5, 0, 0);
     scene.add(uma1);
 	  
-    // 木1を作成(原点に作成)
+    // 馬車1
     var basya1 = new THREE.Mesh(geometry, mat1);
     basya1.position.set(5, 0, 0);
     scene.add(basya1);
 	  
-    // 木1を作成(原点に作成)
+    // 馬2
     var uma2 = new THREE.Mesh(geometry, mat0);
     uma2.position.set(0, 0, 5);
     scene.add(uma2);
 	  
-    // 木1を作成(原点に作成)
+    // 馬車2
     var basya2 = new THREE.Mesh(geometry, mat1);
     basya2.position.set(0, 0, -5);
     scene.add(basya2);
 	  
-    // 木1を作成(原点に作成)
+    // 馬3
     var uma3 = new THREE.Mesh(geometry, mat0);
     uma3.position.set(0.7, 0, -3.5);
     scene.add(uma3);
 	  
-    // 木1を作成(原点に作成)
+    // 馬車3
     var basya3 = new THREE.Mesh(geometry, mat1);
     basya3.position.set(3.5, 0, 3.5);
     scene.add(basya3);
 	  
-    // 木1を作成(原点に作成)
+    // 馬4
     var uma4 = new THREE.Mesh(geometry, mat0);
     uma4.position.set(-3.5, 0, 3.5);
     scene.add(uma4);
 	  
-    // 木1を作成(原点に作成)
+    // 馬車4
     var basya4 = new THREE.Mesh(geometry, mat1);
     basya4.position.set(-3.5, 0, -3.5);
     scene.add(basya4);
@@ -97,7 +97,7 @@
     var mat2 = new THREE.MeshPhongMaterial();
     mat2.map = texture;
 	  
-    //長方形  
+    //地面  
     var groundgeometry = new THREE.PlaneGeometry( 15, 15 );
     var groundmaterial = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.FrontSide} );
     var ground = new THREE.Mesh( groundgeometry, mat2);
