@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>焼肉屋牛工大</title>
+<style type="text/css">
+	.cp_navi {
+	background-color: #ffffff;
+	border: 1px solid #dedede;
+	border-radius: 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	color: #888888;
+	display: block;
+	margin: 1em 1%;
+	overflow: hidden;
+	width: 100%;
+}
+.cp_navi ul {
+	margin: 0;
+	padding: 0;
+}
+.cp_navi ul li {
+	display: inline-block;
+	list-style-type: none;
+	-webkit-transition: all 0.2s;
+	        transition: all 0.2s;
+}
+.cp_navi > ul > li > a > .caret {
+	border-top: 4px solid #aaaaaa;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	content: '';
+	display: inline-block;
+	height: 0;
+	width: 0;
+	vertical-align: middle;
+	-webkit-transition: color 0.1s linear;
+	        transition: color 0.1s linear;
+}
+.cp_navi > ul > li > a {
+	color: #aaaaaa;
+	display: block;
+	line-height: 56px;
+	padding: 0 10px;
+	text-decoration: none;
+}
+.cp_navi > ul > li:hover {
+	background-color: rgb(218, 60, 65);
+}
+.cp_navi > ul > li:hover > a {
+	color: rgb( 255, 255, 255 );
+}
+.cp_navi > ul > li:hover > a > .caret {
+	border-top-color: rgb( 255, 255, 255 );
+}
+.cp_navi > ul > li > div {
+	background-color: rgb(218, 60, 65);
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	display: none;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	width: 165px;
+	visibility: hidden;
+	-webkit-transiton: opacity 0.2s;
+	       transition: opacity 0.2s;
+}
+.cp_navi > ul > li:hover > div {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+.cp_navi > ul > li > div ul > li {
+	display: block;
+}
+.cp_navi > ul > li > div ul > li > a {
+	color: #ffffff;
+	display: block;
+	padding: 12px 24px;
+	text-decoration: none;
+}
+.cp_navi > ul > li > div ul > li:hover > a {
+	background-color: rgba( 255, 255, 255, 0.1);
+}
+.title {
+	font-size:1.5rem;
+}
+.subtitle {
+	font-size:1.3rem;
+}
+
+.mise {
+	width:50%;
+	height=240;
+}
+</style>
+</head>
+
+<body>
+	<header><h1>焼肉屋　牛工大</h1>
+  <nav>
+	  <div class="cp_navi">
+	<ul>
+	<li><a href="#第一回課題.html">
+		当店のこだわり</a></li>
+	<li>
+		<a href="#">こだわりのメニュー<span class="caret"></span></a>
+		<div>
+			<ul>
+				<li><a href="#cow.html">牛肉</a></li>
+				<li><a href="#pog.html">豚肉</a></li>
+				<li><a href="#chicken.html">鶏肉</a></li>
+			</ul>
+		</div>
+	</li>
+	<li><a href="#access.html">アクセス</a></li>
+</ul>
+</div><br>
+	  <div class="title">・豚肉メニュー</div><br><br>
+	  <div class="subtitle">・トンタン塩</div><br>
+	  <img src="buta_tan.jpg" class="mise"><br>
+コリコリ食感を楽しむ。牛タンでなくても満足できます。<br><br>
+	  <div class="subtitle">・やみつき豚ホルモン</div><br>
+	  	  <img src="buta_horumon.jpg" class="mise"><br>
+この食感、癖になる。<br><br>
+
+
+
+ 
+  </nav></header>
+	
+</body>
+</html>

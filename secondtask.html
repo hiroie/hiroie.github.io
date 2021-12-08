@@ -6,7 +6,7 @@
 
   <!-- three.jsを読み込む(CDN) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
-
+  <script src="OrbitControls.js"></script>
 </head>
 <body>
  <script>
@@ -25,6 +25,10 @@
   
     // カメラを作成
     var camera = new THREE.PerspectiveCamera(45, 800 / 600, 1, 1000);
+    
+    
+    // カメラコントローラーを作成
+        const controls = new THREE.OrbitControls(camera,document.body);
   
     // 円錐を作成
     var coneGeometry = new THREE.CylinderGeometry( 0, 1, 1, 32);

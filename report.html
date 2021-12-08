@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+
+  <!-- three.jsを読み込む(ローカル) -->
+  <!-- <script src="./three.js"></script> -->
+  <!-- three.jsを読み込む(CDN) -->
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=lUBCUt7Kr-v5AxD-QmV9Pmq7fMYZEO67mh-mkqXtU7OtOALVz-gYLROZGfPcO4sF-JEKwnOIM2oQ7IDi6XpQTw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9lbGVtYTAuZ2l0aHViLmlvL0NHOC9zYW1wbGVfMi5odG1s"/><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
+  <script src="OrbitControls.js"></script>
+</head>
+ <script>
+  var init = function() {
+
+    var width = 800,
+        height = 600;
+  
+    var degree = 0, // 角度
+    　　radius = 5; // 半径
+   
+	  // レンダラーを作成
+    var renderer = new THREE.WebGLRenderer({
+          canvas: document.querySelector('#myCanvas')
+        });
+    renderer.setSize(width, height);
+    renderer.shadowMap.enabled = true;
+    document.body.appendChild(renderer.domElement);
+  
+    // シーンを作成
+    var scene = new THREE.Scene();
+  
+    // カメラを作成
+    var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+    camera.position.set(0, 17, 15);
+    camera.lookAt(0, 0, 0);
+
+    // カメラコントローラーを作成
+    const controls = new THREE.OrbitControls(camera,document.body);
+
+    // テクスチャー1読み込み
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("uma.png");
+    var mat0 = new THREE.MeshPhongMaterial();
+    mat0.map = texture;
+	  
+    // テクスチャー2読み込み
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("basya.png");
+    var mat1 = new THREE.MeshPhongMaterial();
+    mat1.map = texture;	  
+	  
+    // 馬1
+    var uma1 = new THREE.Mesh(geometry, mat0);
+    uma1.position.set(-5, 0, 0);
+    scene.add(uma1);
+	  
+    // 馬車1
+    var basya1 = new THREE.Mesh(geometry, mat1);
+    basya1.position.set(5, 0, 0);
+    scene.add(basya1);
+	  
+    // 馬2
+    var uma2 = new THREE.Mesh(geometry, mat0);
+    uma2.position.set(0, 0, 5);
+    scene.add(uma2);
+	  
+    // 馬車2
+    var basya2 = new THREE.Mesh(geometry, mat1);
+    basya2.position.set(0, 0, -5);
+    scene.add(basya2);
+	  
+    // 馬3
+    var uma3 = new THREE.Mesh(geometry, mat0);
+    uma3.position.set(0.7, 0, -3.5);
+    scene.add(uma3);
+	  
+    // 馬車3
+    var basya3 = new THREE.Mesh(geometry, mat1);
+    basya3.position.set(3.5, 0, 3.5);
+    scene.add(basya3);
+	  
+    // 馬4
+    var uma4 = new THREE.Mesh(geometry, mat0);
+    uma4.position.set(-3.5, 0, 3.5);
+    scene.add(uma4);
+	  
+    // 馬車4
+    var basya4 = new THREE.Mesh(geometry, mat1);
+    basya4.position.set(-3.5, 0, -3.5);
+    scene.add(basya4);
+	  
+    // テクスチャー3読み込み
+    var textureLoader = new THREE.TextureLoader();  
+    var texture = textureLoader.load("renga.png");
+    var mat2 = new THREE.MeshPhongMaterial();
+    mat2.map = texture;
+	  
+    //地面  
+    var groundgeometry = new THREE.PlaneGeometry( 15, 15 );
+    var groundmaterial = new THREE.MeshPhongMaterial( {color: 0xffffff, side: THREE.FrontSide} );
+    var ground = new THREE.Mesh( groundgeometry, mat2);
+    ground.rotation.set(-Math.PI/2,0,0);
+    ground.position.set(0, -2, 0);
+    scene.add( ground );
+
+    // 平行光源1
+    var pointLight1 = new THREE.PointLight(0xffffff, 2, 50, 1.0);
+    pointLight1.position.set(0, 10, 0);
+    pointLight1.castShadow = true;
+    // シーンに追加
+    scene.add(pointLight1);
+    // 平行光源2
+    var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+    directionalLight2.position.set(-1, 1, 1);
+    // シーンに追加
+    scene.add(directionalLight2);
+
+    // 初回実行
+    var update = function() {
+        requestAnimationFrame(update);
+
+	degree += 2;
+        // 角度をラジアンに変換
+        const rad = degree * Math.PI / 180;
+	
+	//楕円上移動
+        uma1.position.x = 5 * Math.cos(rad+Math.PI);
+	uma1.position.z = Math.sin(rad+Math.PI);
+        basya1.position.x = 5 * Math.cos(rad);
+	basya1.position.z = Math.sin(rad);
+        uma2.position.x = Math.cos(rad+Math.PI);
+	uma2.position.z = 5 * Math.sin(rad+Math.PI);
+        basya2.position.x = Math.cos(rad);
+	basya2.position.z = 5 * Math.sin(rad);
+
+	//斜め楕円上移動
+	uma3.position.x = 5 * Math.cos(rad + Math.PI/4) * Math.cos(Math.PI/4*7) - Math.sin(rad + Math.PI/4) * Math.sin(Math.PI/4*7);
+	uma3.position.z = Math.sin(rad + Math.PI/4) * Math.cos(Math.PI/4*7) + 5 * Math.cos(rad + Math.PI/4) * Math.sin(Math.PI/4*7);
+        basya3.position.x = 5 * Math.cos(rad + Math.PI/4) * Math.cos(Math.PI/4*3) - Math.sin(rad + Math.PI/4) * Math.sin(Math.PI/4*3);
+	basya3.position.z = Math.sin(rad + Math.PI/4) * Math.cos(Math.PI/4*3) + 5 * Math.cos(rad + Math.PI/4) * Math.sin(Math.PI/4*3);
+        uma4.position.x = 5 * Math.cos(rad + Math.PI/4*3) * Math.cos(Math.PI/4) - Math.sin(rad + Math.PI/4*3) * Math.sin(Math.PI/4);
+	uma4.position.z = Math.sin(rad + Math.PI/4*3) * Math.cos(Math.PI/4) + 5 * Math.cos(rad + Math.PI/4*3) * Math.sin(Math.PI/4);
+        basya4.position.x = 5 * Math.cos(rad + Math.PI/4*3) * Math.cos(Math.PI/4*5) - Math.sin(rad + Math.PI/4*3) * Math.sin(Math.PI/4*5);
+	basya4.position.z = Math.sin(rad + Math.PI/4*3) * Math.cos(Math.PI/4*5) + 5 * Math.cos(rad + Math.PI/4*3) * Math.sin(Math.PI/4*5);
+
+	renderer.render(scene, camera);
+    };
+    update();
+  }
+  window.addEventListener('DOMContentLoaded', init);
+</script>
+<body>
+    <canvas id="myCanvas"></canvas>
+</body>
